@@ -408,7 +408,6 @@
             this.ctx.font = '20px "Arial", sans-serif';
             this.ctx.fillStyle = Colors.GRAY;
             this.ctx.fillText('Press SPACE to restart', this.canvas.width / 2, this.canvas.height / 2 + 150);
-            this.ctx.fillText('Press ESC for menu', this.canvas.width / 2, this.canvas.height / 2 + 190);
             this.ctx.textAlign = 'left';
         }
 
@@ -467,7 +466,7 @@
             const preventKeys = [
                 ' ', 'ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight',
                 'w', 'a', 's', 'd', 'W', 'A', 'S', 'D',
-                'p', 'P', 'Escape'
+                'p', 'P'
             ];
             if (preventKeys.includes(key) || key === ' ') {
                 e.preventDefault();
@@ -518,3 +517,4 @@
     window.addEventListener('load', init);
 
 })();
+
