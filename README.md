@@ -1,6 +1,6 @@
 # Welcome to SnakeGamink!
 
-- 🎮 [Play Web Version](https://username.github.io/SnakeGamink/)
+- 🎮 [Play Web Version](https://koze016.github.io/SnakeGameink/)
 - 🐍 [Python Version](Python/Snake.py)
 
 ## Running Python Version
