@@ -251,9 +251,9 @@ class Game:
                         self.ready = False
                         self.first_launch = False
 
-                # Game over: SPACE or R to restart
+                # Game over: SPACE to restart
                 elif self.game_over:
-                    if event.key in (pygame.K_SPACE, pygame.K_r):
+                    if event.key == pygame.K_SPACE:
                         self.reset_game()
 
                 # In-game controls
@@ -350,7 +350,10 @@ class Game:
         # Score and high score
         score_text = self.font_small.render(f'Score: {self.score}', True, Colors.WHITE)
         self.window.blit(score_text, (10, 10))
-        high_text = self.font_small.render(f'Best: {self.high_score}', True, Colors.WHITE)
+        
+        # High score turns YELLOW if you've tied or beaten the record
+        high_score_color = Colors.YELLOW if (self.score == self.high_score and self.score > 0) else Colors.WHITE
+        high_text = self.font_small.render(f'Best: {self.high_score}', True, high_score_color)
         self.window.blit(high_text, (10, 35))
 
         # Pause overlay
@@ -383,18 +386,14 @@ class Game:
         score_rect = score.get_rect(center=(w // 2, h // 2))
         self.window.blit(score, score_rect)
 
-        best = self.font_medium.render(f'Best: {self.high_score}', True, Colors.WHITE)
+        # High score – YELLOW if this is a new record, otherwise white
+        high_score_color = Colors.YELLOW if (self.score == self.high_score and self.score > 0) else Colors.WHITE
+        best = self.font_medium.render(f'Best: {self.high_score}', True, high_score_color)
         best_rect = best.get_rect(center=(w // 2, h // 2 + 40))
         self.window.blit(best, best_rect)
 
-        # New high score celebration
-        if self.score == self.high_score and self.score > 0:
-            new_best = self.font_small.render('NEW BEST SCORE!', True, Colors.YELLOW)
-            new_best_rect = new_best.get_rect(center=(w // 2, h // 2 + 75))
-            self.window.blit(new_best, new_best_rect)
-
-        # Always show restart/quit instructions
-        restart = self.font_small.render('Press SPACE or R to restart', True, Colors.GRAY)
+        # Restart/quit instructions 
+        restart = self.font_small.render('Press SPACE to restart', True, Colors.GRAY)
         restart_rect = restart.get_rect(center=(w // 2, h // 2 + 115))
         self.window.blit(restart, restart_rect)
 
