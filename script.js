@@ -375,15 +375,6 @@
             this.ctx.fillStyle = Colors.GREEN;
             this.ctx.textAlign = 'center';
             this.ctx.fillText('SNAKE', this.canvas.width / 2, this.canvas.height / 2 - 40);
-
-            this.ctx.font = '30px "Arial", sans-serif';
-            this.ctx.fillStyle = Colors.WHITE;
-            this.ctx.fillText('Press SPACE to start', this.canvas.width / 2, this.canvas.height / 2 + 40);
-
-            this.ctx.font = '18px "Arial", sans-serif';
-            this.ctx.fillStyle = Colors.GRAY;
-            this.ctx.fillText('Arrow Keys / WASD • P pause', this.canvas.width / 2, this.canvas.height / 2 + 100);
-            this.ctx.textAlign = 'left';
         }
 
         drawGameOver() {
@@ -404,11 +395,6 @@
             this.ctx.fillStyle = highColor;
             this.ctx.font = '24px "Arial", sans-serif';
             this.ctx.fillText(`Best: ${this.highScore}`, this.canvas.width / 2, this.canvas.height / 2 + 70);
-
-            this.ctx.font = '20px "Arial", sans-serif';
-            this.ctx.fillStyle = Colors.GRAY;
-            this.ctx.fillText('Press SPACE to restart', this.canvas.width / 2, this.canvas.height / 2 + 150);
-            this.ctx.textAlign = 'left';
         }
 
         drawPause() {
@@ -418,9 +404,6 @@
             this.ctx.font = 'bold 48px "Arial", sans-serif';
             this.ctx.fillStyle = Colors.WHITE;
             this.ctx.fillText('PAUSED', this.canvas.width / 2, this.canvas.height / 2);
-            this.ctx.font = '22px "Arial", sans-serif';
-            this.ctx.fillStyle = Colors.GRAY;
-            this.ctx.fillText('Press P to resume', this.canvas.width / 2, this.canvas.height / 2 + 70);
             this.ctx.textAlign = 'left';
         }
 
@@ -473,7 +456,7 @@
             }
 
             // ----- GLOBAL ACTIONS -----
-            // SPACE: start / restart
+            // SPACE: start
             if (key === ' ' || key === 'Space') {
                 if (game.ready) {
                     game.ready = false;
@@ -482,7 +465,7 @@
                 } else if (game.gameOver) {
                     game.resetGame();
                 }
-                // if paused and space? we keep space only for start/restart – ignore in game
+                // if paused and space? we keep space only for start – ignore in game
                 return;
             }
 
@@ -517,4 +500,5 @@
     window.addEventListener('load', init);
 
 })();
+
 
