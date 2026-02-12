@@ -1,0 +1,10 @@
+# Welcome to SnakeGamink!
+
+- 🎮 [Play Web Version](https://koze016.github.io/SnakeGameink/)
+- 🐍 [Python Version](Python/Snake.py)
+
+## Running Python Version
+```bash
+cd <path>
+pip install pygame
+python Snake.py
