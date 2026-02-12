@@ -331,18 +331,6 @@
             this.setSpeed(INITIAL_SPEED);
         }
 
-        // called by ESC: return to ready menu, fresh state
-        resetToReady() {
-            this.snake.reset();
-            this.food.respawn(this.snake.body);
-            this.score = 0;
-            this.gameOver = false;
-            this.paused = false;
-            this.ready = true;
-            this.firstLaunch = false; // so space won't show 'first launch' message
-            this.setSpeed(INITIAL_SPEED);
-        }
-
         // ---------- drawing ----------
         drawGrid() {
             const w = this.canvas.width;
@@ -486,12 +474,6 @@
             }
 
             // ----- GLOBAL ACTIONS -----
-            // ESC: return to ready menu (if not already)
-            if (key === 'Escape') {
-                game.resetToReady();
-                return;
-            }
-
             // SPACE: start / restart
             if (key === ' ' || key === 'Space') {
                 if (game.ready) {
@@ -534,4 +516,5 @@
 
     // start everything when page loads
     window.addEventListener('load', init);
+
 })();
