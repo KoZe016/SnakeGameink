@@ -364,6 +364,7 @@
             this.ctx.fillStyle = highColor;
             this.ctx.font = 'bold 18px "Arial", sans-serif';
             this.ctx.fillText(`Best: ${this.highScore}`, 14, 68);
+            this.ctx.textAlign = 'left';
         }
 
         drawReadyScreen() {
@@ -500,5 +501,6 @@
     window.addEventListener('load', init);
 
 })();
+
 
 
